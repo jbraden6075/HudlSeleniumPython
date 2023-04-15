@@ -50,7 +50,6 @@ Since I was asked to use Selenium for this project, which requires downloading d
 - Clicking the left arrow link will navigate to hudl.com
 - Clicking the Need help link from the login page will navigate to /login/help#
 - Clicking the Need help link from the invalid log in message will navigate to /login/help
-- Clicking the Back link from /help# will navigate to hudl.com
 - Clicking the Log In with an Organization button will navigate to /login/organization
 - Clicking the Sign up link will navigate to hudl.com/register/signup
 - Selecting Remember me and logging in successfully will auto-log the user in after ending a browser session and navigating to hudl.com in a new session
