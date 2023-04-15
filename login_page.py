@@ -113,7 +113,6 @@ def test_need_help_goes_to_help_page():
     time.sleep(5)
 
     txt_login_help = driver.find_element(by=By.XPATH, value='//h2[@data-qa-id="login-help-headline"]')
-
     assert txt_login_help.is_displayed()
 
     driver.close()
@@ -140,8 +139,28 @@ def test_need_help_from_invalid_log_in_goes_to_help_page():
     time.sleep(5)
 
     txt_login_help = driver.find_element(by=By.XPATH, value='//h2[@data-qa-id="login-help-headline"]')
-
     assert txt_login_help.is_displayed()
+
+    driver.close()
+    driver.quit()
+
+def test_clicking_log_in_with_an_organization_goes_to_organization_page():
+    driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
+
+    driver.get("https://www.hudl.com/login")
+
+    time.sleep(5)
+
+    title = driver.title
+    assert title == "Log In"
+
+    btn_log_in = driver.find_element(by=By.XPATH, value='//button[@data-qa-id="log-in-with-organization-btn"]')
+    btn_log_in.click()
+
+    time.sleep(5)
+
+    btn_log_in_with_email_and_password = driver.find_element(by=By.XPATH, value='//button[@data-qa-id="log-in-with-email-and-password"]')
+    assert btn_log_in_with_email_and_password.is_displayed()
 
     driver.close()
     driver.quit()
