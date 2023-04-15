@@ -42,6 +42,8 @@ Since I was asked to use Selenium for this project, which requires downloading d
 
 - I didn't put much time into debugging or handling browser behavior if a test would fail, so if a test fails in this project, that browser session will remain open. control+C will kill the processes.
 
+- I had thought of writing a script for remembering the user at log in, but since that requires figuring out a way of copying session cookies and injecting them into a new session, I decided against it for this example project.
+
 ## Scenarios:
 
 ### Positive:
@@ -52,12 +54,9 @@ Since I was asked to use Selenium for this project, which requires downloading d
 - Clicking the Need help link from the invalid log in message will navigate to /login/help
 - Clicking the Log In with an Organization button will navigate to /login/organization
 - Clicking the Sign up link will navigate to hudl.com/register/signup
-- Selecting Remember me and logging in successfully will auto-log the user in after ending a browser session and navigating to hudl.com in a new session
 
 ### Negative:
-- Empty email and password will display message
 - Invalid email will display message
-- Valid email with invalid password will display message
 
 ## Run Project:
 
