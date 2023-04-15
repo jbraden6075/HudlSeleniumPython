@@ -38,6 +38,7 @@ def test_successful_login_goes_to_the_home_page():
     txt_user_name = driver.find_element(by=By.CLASS_NAME, value="hui-globaluseritem__display-name").text
     assert txt_user_name == 'Justin B'
 
+    #Closing the browser and ending the driver session
     driver.close()
     driver.quit()
 
