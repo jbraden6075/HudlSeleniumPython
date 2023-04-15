@@ -32,6 +32,10 @@ Since I was asked to use Selenium for this project, which requires downloading d
 
 ## My Thoughts:
 
+- I chose Python with Pytest for the project to submit due to its simple syntax and it not giving me as much trouble as JavaScript with mocha. There are a lot less lines needed to get the same job done using Python, so it seems cleaner as well.
+
+- Selenium admits that waits are not their cup of tea, so instead of writing out a method to handle a global way of waiting, I simply imported `time` and call implicit waits accordingly. Since hudl.com is quick to navigate, I made a standard in my tests to wait 5 seconds for page loads and 2 seconds for element changes.
+
 - If I was building a legit project to handle scalability, I would architech the repo with a page object model (POM) structure in mind. This approach would help reduce maintenance and allow for faster script writing in the future, if we were to build this out as a full project. A POM allows contributors to focus on writing new coverages without duplicating code whenever possible. Instead, contributors would be able to import and call selectors and methods into scripts, while also only having to update changes to these items in one place instead of multiple areas of the repo.
 
 - I would also look into using a reporter so when a suite is ran, there would be a concise report of the results. In this case, the console does well enough in showing which tests passed and which ones failed accordingly.
@@ -68,3 +72,4 @@ Since I was asked to use Selenium for this project, which requires downloading d
 ### Execute Specs:
 - In a terminal, cd to the root of the project, based on the path it is saved at
 - Run the command: `pytest login_page.py`
+- If a test fails, please wait until the execution is finished and then press `control+C` to kill any remaining processes
