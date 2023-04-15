@@ -64,11 +64,11 @@ Since I was asked to use Selenium for this project, which requires downloading d
 ### Prerequisites:
 - The environment will need Chrome browser version 102 installed
 - Clone the project ([Instructions]([Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)))
-- Python 3.11.3 will need to be installed and added to the machine's path
-- In a terminal, cd to the root of the project, based on the path it is saved at
+- Python 3.11.3 will need to be installed and added to the machine's path ([Instructions](https://www.makeuseof.com/python-windows-path/))
+- In a terminal, cd to the root of the project
     - Run the command: `pip install -r requirements.txt` (this will install all the dependencies required to run the project)
 
 ### Execute Specs:
-- In a terminal, cd to the root of the project, based on the path it is saved at
+- In a terminal, cd to the root of the project
 - Run the command: `pytest login_page.py`
 - If a test fails, please wait until the execution is finished and then press `control+C` to kill any remaining processes

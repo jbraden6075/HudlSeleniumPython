@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 
 
-def test_successful_login():
+def test_successful_login_goes_to_the_home_page():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")
@@ -55,7 +55,7 @@ def test_invalid_email_will_display_message():
     driver.close()
     driver.quit()
 
-def test_hudl_logo_goes_to_main_page():
+def test_hudl_logo_goes_to_the_main_page():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")
@@ -76,7 +76,7 @@ def test_hudl_logo_goes_to_main_page():
     driver.close()
     driver.quit()
 
-def test_left_arrow_goes_to_main_page():
+def test_left_arrow_goes_to_the_main_page():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")
@@ -97,7 +97,7 @@ def test_left_arrow_goes_to_main_page():
     driver.close()
     driver.quit()
 
-def test_need_help_goes_to_help_page():
+def test_need_help_goes_to_the_help_page():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")
@@ -118,7 +118,7 @@ def test_need_help_goes_to_help_page():
     driver.close()
     driver.quit()
 
-def test_need_help_from_invalid_log_in_goes_to_help_page():
+def test_need_help_from_invalid_log_in_goes_to_the_help_page():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")
@@ -144,7 +144,7 @@ def test_need_help_from_invalid_log_in_goes_to_help_page():
     driver.close()
     driver.quit()
 
-def test_clicking_log_in_with_an_organization_goes_to_organization_page():
+def test_clicking_log_in_with_an_organization_goes_to_the_organization_page():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")
@@ -161,6 +161,27 @@ def test_clicking_log_in_with_an_organization_goes_to_organization_page():
 
     btn_log_in_with_email_and_password = driver.find_element(by=By.XPATH, value='//button[@data-qa-id="log-in-with-email-and-password"]')
     assert btn_log_in_with_email_and_password.is_displayed()
+
+    driver.close()
+    driver.quit()
+
+def test_clicking_sign_up_goes_to_the_sign_up_page():
+    driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
+
+    driver.get("https://www.hudl.com/login")
+
+    time.sleep(5)
+
+    title = driver.title
+    assert title == "Log In"
+
+    btn_sign_up = driver.find_element(by=By.CLASS_NAME, value="styles_signUpLink_1CPc8TbK9yDyBdJiSpUOZV")
+    btn_sign_up.click()
+
+    time.sleep(5)
+
+    link_high_schools = driver.find_element(by=By.ID, value="register_demo")
+    link_high_schools.is_displayed()
 
     driver.close()
     driver.quit()
