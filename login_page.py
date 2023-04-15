@@ -4,32 +4,45 @@ import time
 
 
 def test_successful_login_goes_to_the_home_page():
+    #Initiating the webdriver
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
+    #Navigating to the login page
     driver.get("https://www.hudl.com/login")
 
+    #Implicit wait to give the page time to load
     time.sleep(5)
 
+    #Asserting the title of the page matches expecations
     title = driver.title
     assert title == "Log In"
 
+    #Declaring the login page locators we'll be handling
     txtfld_email = driver.find_element(by=By.ID, value="email")
     txtfld_password = driver.find_element(by=By.ID, value="password")
     btn_log_in = driver.find_element(by=By.ID, value="logIn")
 
+    #Populating the email and password and clicking the Log In button
     txtfld_email.send_keys("jbraden@protonmail.com")
     txtfld_password.send_keys("")
     btn_log_in.click()
 
+    #Implicit wait to give the page time to load
     time.sleep(5)
 
+    #Asserting the title of the page matches expectations
     title = driver.title
     assert title == "Home - Hudl"
 
+    #Asserting the user that's supposed to be logged in is
+    txt_user_name = driver.find_element(by=By.CLASS_NAME, value="hui-globaluseritem__display-name").text
+    assert txt_user_name == 'Justin B'
+
+    #Closing the browser and ending the driver session
     driver.close()
     driver.quit()
 
-def test_invalid_email_will_display_message():
+def test_invalid_password_will_display_message():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")

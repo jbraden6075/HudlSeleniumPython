@@ -44,6 +44,8 @@ Since I was asked to use Selenium for this project, which requires downloading d
 
 - I had thought of writing a script for remembering the user at log in, but since that requires figuring out a way of copying session cookies and injecting them into a new session, I decided against it for this example project.
 
+- I only added comments to the first test as the rest of the file is pretty standard. I just wanted to show some insights on my workflow ideas.
+
 ## Scenarios:
 
 ### Positive:
@@ -71,3 +73,5 @@ Since I was asked to use Selenium for this project, which requires downloading d
 - In a terminal, cd to the root of the project
 - Run the command: `pytest login_page.py`
 - If a test fails, please wait until the execution is finished and then press `control+C` to kill any remaining processes
+- If you want to run a specific test instead of the whole file: `pytest login_page.py -k '<test name>'`
+    - For example: `pytest login_page.py -k 'test_successful_login_goes_to_the_home_page'`
