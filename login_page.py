@@ -44,7 +44,7 @@ def test_invalid_email_will_display_message():
     btn_log_in = driver.find_element(by=By.ID, value="logIn")
 
     txtfld_email.send_keys("asdf@asdf.com")
-    txtfld_password.send_keys("techInterview1")
+    txtfld_password.send_keys("")
     btn_log_in.click()
 
     time.sleep(2)
