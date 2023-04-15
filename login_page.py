@@ -55,7 +55,7 @@ def test_invalid_email_will_display_message():
     driver.close()
     driver.quit()
 
-def test_hudl_logo_goes_to_home():
+def test_hudl_logo_goes_to_main_page():
     driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
 
     driver.get("https://www.hudl.com/login")
@@ -77,3 +77,24 @@ def test_hudl_logo_goes_to_home():
     driver.close()
     driver.quit()
 
+def test_left_arrow_goes_to_main_page():
+    driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
+
+    driver.get("https://www.hudl.com/login")
+
+    time.sleep(5)
+
+    title = driver.title
+    assert title == "Log In"
+
+    link_left_arrow = driver.find_element(by=By.CLASS_NAME, value="styles_backIconContainer_MhkioW9m8rx70X7CIGuws")
+
+    link_left_arrow.click()
+
+    time.sleep(5)
+
+    btn_log_in = driver.find_element(by=By.CLASS_NAME, value="mainnav__item--expandable")
+    assert btn_log_in.is_enabled()
+
+    driver.close()
+    driver.quit()
