@@ -98,3 +98,26 @@ def test_left_arrow_goes_to_main_page():
 
     driver.close()
     driver.quit()
+
+def test_need_help_goes_to_help_page():
+    driver = webdriver.Chrome(executable_path= "drivers/chromedriver.exe")
+
+    driver.get("https://www.hudl.com/login")
+
+    time.sleep(5)
+
+    title = driver.title
+    assert title == "Log In"
+
+    link_need_help = driver.find_element(by=By.LINK_TEXT, value="Need help?")
+
+    link_need_help.click()
+
+    time.sleep(5)
+
+    txt_login_help = driver.find_element(by=By.XPATH, value='//h2[@data-qa-id="login-help-headline"]')
+
+    assert txt_login_help.is_displayed()
+
+    driver.close()
+    driver.quit()
